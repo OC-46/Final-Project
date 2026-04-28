@@ -5,17 +5,21 @@ from .deck import load_deck, save_deck
 
 
 def update_priority(card_dict, deck, card_id, correct):
+    """Adjust a card's priority and reinsert it into the review heap."""
     card = card_dict[card_id]
+
+    # Correct answers reduce priority, but never below 0.
     if correct:
         card["priority"] = max(0, card["priority"] - 1)
     else:
+        # Wrong answers increase priority so the card is reviewed earlier.
         card["priority"] += 2
 
     heapq.heappush(deck, (card["priority"], card_id))
-    
 
 
 def run_session(card_dict, heap, filepath):
+    """Run the interactive review loop until the user quits or the deck is finished."""
     print("Welcome to my flashcard app. Type 'quit' to exit.\n")
 
     if not heap:
@@ -26,6 +30,7 @@ def run_session(card_dict, heap, filepath):
         priority, card_id = heapq.heappop(heap)
         card = card_dict[card_id]
 
+        # Skip cards that are still scheduled for later review.
         if card["priority"] > 0:
             heapq.heappush(heap, (card["priority"], card_id))
             continue
@@ -38,12 +43,6 @@ def run_session(card_dict, heap, filepath):
             print("saving and exiting...")
             save_deck(filepath, card_dict)
             break
-        
-        if user_input == "quit":
-            print("Quitting mid-card — this card won't be marked right or wrong.")
-            heapq.heappush(heap, (card["priority"], card_id))
-            save_deck(filepath, card_dict)
-            break
 
         print(f"\nAnswer: {card['answer']}")
 
@@ -51,23 +50,22 @@ def run_session(card_dict, heap, filepath):
         while result not in ("y", "n"):
             result = input("please enter y or n: ").strip().lower()
 
-
-        if got_right := (result == "y"):
-            update_priority(card_dict, heap, card_id, True)
-
+        got_right = (result == "y")
         if got_right:
-             print("good job!\n")
+            update_priority(card_dict, heap, card_id, True)
+            print("good job!\n")
         else:
+            update_priority(card_dict, heap, card_id, False)
             print("you'll get it next time!\n")
 
-        print("-"*40 + "\n")
+        print("-" * 40 + "\n")
 
     save_deck(filepath, card_dict)
     print("No more cards to review. Good job! Exiting...")
 
 
-
 def main():
+    # The deck file is stored one level above the source package.
     filepath = "../flashcards.JSON"
     try:
         card_dict, heap = load_deck(filepath)
@@ -77,6 +75,7 @@ def main():
     except json.JSONDecodeError:
         print(f"Error: {filepath} is not a valid JSON file. Please check the file format.")
         return
+
     run_session(card_dict, heap, filepath)
 
 
