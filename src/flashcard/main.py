@@ -1,7 +1,17 @@
 import heapq
 import json
+import os
+import sys
 import random
-from .deck import load_deck, save_deck
+
+try:
+    from .deck import load_deck, save_deck
+except ImportError:
+    # Allow running this module directly with `python src/flashcard/main.py`.
+    src_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    if src_root not in sys.path:
+        sys.path.insert(0, src_root)
+    from flashcard.deck import load_deck, save_deck
 
 
 def update_priority(card_dict, deck, card_id, correct):
@@ -65,8 +75,9 @@ def run_session(card_dict, heap, filepath):
 
 
 def main():
-    # The deck file is stored one level above the source package.
-    filepath = "../flashcards.JSON"
+    # Determine the deck file path relative to this script, not the current working directory.
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    filepath = os.path.abspath(os.path.join(script_dir, "..", "..", "flashcards_correct.JSON"))
     try:
         card_dict, heap = load_deck(filepath)
     except FileNotFoundError:
