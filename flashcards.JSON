@@ -1,0 +1,33 @@
+
+[
+    {
+        "id": "q1",
+        "question": "what is a priority heap",
+        "answer": "A complete binary tree where each parent is smaller than its children (min-heap)",
+        "priority": 0
+    },
+    {
+        "id": "q2",
+        "question": "what is a priority heap",
+        "answer": "A complete binary tree where each parent is smaller than its children (min-heap)",
+        "priority": 0
+    },
+    {
+        "id": "q3",
+        "question": "what is a priority heap",
+        "answer": "A complete binary tree where each parent is smaller than its children (min-heap)",
+        "priority": 0
+    },
+    {
+        "id": "q4",
+        "question": "what is a priority heap",
+        "answer": "A complete binary tree where each parent is smaller than its children (min-heap)",
+        "priority": 0
+    },
+    {
+        "id": "q5",
+        "question": "what is a priority heap",
+        "answer": "A complete binary tree where each parent is smaller than its children (min-heap)",
+        "priority": 0
+    }
+]
