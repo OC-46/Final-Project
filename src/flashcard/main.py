@@ -17,13 +17,17 @@ except ImportError:
 def update_priority(card_dict, deck, card_id, correct):
     """Adjust a card's priority and reinsert it into the review heap."""
     card = card_dict[card_id]
+    card.setdefault("priority", 0)  # Ensure priority field exists.
 
     # Correct answers reduce priority, but never below 0.
     if correct:
-        card["priority"] = max(0, card["priority"] - 1)
+        card["streak"] += 1
+        drop = min(card["streak"], 3)  # Max drop of 3 for a correct answer.
+        card["priority"] = max(0, card["priority"] - drop)
     else:
         # Wrong answers increase priority so the card is reviewed earlier.
         card["priority"] += 2
+        card["streak"] = 0  # Reset the streak on a wrong answer.
 
     heapq.heappush(deck, (card["priority"], card_id))
 
