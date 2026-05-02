@@ -24,8 +24,9 @@ def load_deck(filepath):
             skipped += 1
             continue
 
-        # Ensure a numeric priority field exists; if missing, default to 0.
+        # Ensure numeric priority and streak fields exist; if missing, default to 0.
         card.setdefault("priority", 0)
+        card.setdefault("streak", 0)
         card_dict[card["id"]] = card
         heapq.heappush(heap, (card["priority"], card["id"]))
 
