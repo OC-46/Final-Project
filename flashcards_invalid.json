@@ -3,13 +3,15 @@
     "id": 1,
     "question": "What is the capital of France?",
     "answer": "Paris",
-    "priority": 0
+    "priority": 0,
+    "wrong_streak": 0
   },
   {
     "id": 1,
     "question": "Duplicate card id",
     "answer": "Should be skipped",
-    "priority": 0
+    "priority": 0,
+    "wrong_streak": 0
   },
   {
     "question": "Missing id field",

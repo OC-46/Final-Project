@@ -98,14 +98,15 @@ def run_session(card_dict, heap, filepath):
 def main():
     # Determine the deck file path relative to this script, not the current working directory
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    filepath = os.path.abspath(os.path.join(script_dir, "..", "..", "flashcards_correct.JSON"))
+    filename = input("Enter the JSON file name: ").strip()
+    filepath = os.path.abspath(os.path.join(script_dir, "..", "..", filename))
     try:
         card_dict, heap = load_deck(filepath)
     except FileNotFoundError:
-        print(f"Error: {filepath} not found. Please make sure the file exists.")
+        print(f"Error: {filename} not found. Please make sure the file exists.")
         return
     except json.JSONDecodeError:
-        print(f"Error: {filepath} is not a valid JSON file. Please check the file format.")
+        print(f"Error: {filename} is not a valid JSON file. Please check the file format.")
         return
 
     run_session(card_dict, heap, filepath)
