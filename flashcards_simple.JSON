@@ -3,16 +3,16 @@
     "id": "s1",
     "question": "What is 2 + 2?",
     "answer": "4",
-    "priority": 0,
-    "streak": 0,
+    "priority": 1,
+    "streak": 1,
     "wrong_streak": 0
   },
   {
     "id": "s2",
     "question": "What color is grass?",
     "answer": "Green",
-    "priority": 0,
-    "streak": 0,
+    "priority": 1,
+    "streak": 1,
     "wrong_streak": 0
   },
   {

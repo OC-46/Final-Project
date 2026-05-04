@@ -3,40 +3,40 @@
     "id": "q1",
     "question": "what is 1 + 1",
     "answer": "2",
-    "priority": 0,
+    "priority": 3,
     "streak": 0,
-    "wrong_streak": 0
+    "wrong_streak": 1
   },
   {
     "id": "q2",
     "question": "what is 2 + 2",
     "answer": "4",
-    "priority": 0,
+    "priority": 3,
     "streak": 0,
-    "wrong_streak": 0
+    "wrong_streak": 1
   },
   {
     "id": "q3",
     "question": "what is 3 + 3",
     "answer": "6",
-    "priority": 0,
-    "streak": 0,
+    "priority": 2,
+    "streak": 2,
     "wrong_streak": 0
   },
   {
     "id": "q4",
     "question": "what is 4 + 4",
     "answer": "8",
-    "priority": 0,
+    "priority": 3,
     "streak": 0,
-    "wrong_streak": 0
+    "wrong_streak": 1
   },
   {
     "id": "q5",
     "question": "what is 5 + 5",
     "answer": "10",
-    "priority": 0,
-    "streak": 0,
+    "priority": 2,
+    "streak": 2,
     "wrong_streak": 0
   },
   {
@@ -44,39 +44,39 @@
     "question": "what is 6 + 6",
     "answer": "12",
     "priority": 0,
-    "streak": 0,
+    "streak": 1,
     "wrong_streak": 0
   },
   {
     "id": "q7",
     "question": "what is 7 + 7",
     "answer": "14",
-    "priority": 0,
+    "priority": 3,
     "streak": 0,
-    "wrong_streak": 0
+    "wrong_streak": 1
   },
   {
     "id": "q8",
     "question": "what is 8 + 8",
     "answer": "16",
-    "priority": 0,
-    "streak": 0,
+    "priority": 1,
+    "streak": 1,
     "wrong_streak": 0
   },
   {
     "id": "q9",
     "question": "what is 9 + 9",
     "answer": "18",
-    "priority": 0,
-    "streak": 0,
+    "priority": 1,
+    "streak": 1,
     "wrong_streak": 0
   },
   {
     "id": "q10",
     "question": "what is 10 + 10",
     "answer": "20",
-    "priority": 0,
-    "streak": 0,
+    "priority": 2,
+    "streak": 2,
     "wrong_streak": 0
   }
 ]
